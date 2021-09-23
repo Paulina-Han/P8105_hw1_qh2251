@@ -1,0 +1,12 @@
+---
+title: "P8105_hw1_qh2251"
+author: "Paulina Han"
+date: "2021/9/23"
+output: github_document
+---
+
+# Problem 1
+```{r}
+
+```
+
