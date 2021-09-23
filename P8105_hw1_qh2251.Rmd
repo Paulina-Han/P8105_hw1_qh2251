@@ -5,8 +5,41 @@ date: "2021/9/23"
 output: github_document
 ---
 
+```{r,echo = FALSE, message = FALSE}
+library(tidyverse)
+```
+
 # Problem 1
 ```{r}
+set.seed(12)
+
+df_1 = tibble(
+  vec_numeric = rnorm(10),
+  vec_logical = vec_numeric>0,
+  vec_char = c("a", "b", "c", "d","e","f","g","h","i","j"),
+  vec_factor = factor(c("blue","blue","blue","red","red","red","yellow","yellow","yellow","yellow"))
+  )
+
+mean(pull(df_1,vec_numeric))
+mean(pull(df_1,vec_logical))
+mean(pull(df_1,vec_char))
+mean(pull(df_1,vec_factor))
+```
+
+The numerical and logical vectors work,but the charater and factor vectors don' work.
+
+```{r,eval = FALSE}
+mean(as.numeric(pull(df_1,vec_logical)))
+mean(as.numeric(pull(df_1,vec_char)))
+mean(as.numeric(pull(df_1,vec_factor)))
 
 ```
+the `mean` function works for the converted numeric vector and the converted factor vector.However the mean function doesn't work for the converted character vector.
+
+the `as.numeric` function set TRUE to 1 and FALSE to 0 for the logical vector.the `as.numeric` function set "blue" to 1,"red" to 2,"yellow" to 3 for the factor vector. In this way the `mean` function works. All characters were converted to NA by `as.numeric` function so it won't work for the `mean` function.
+
+So when you try to take the mean of a vector , you have to make sure it is a numerical vector.
+
+
+
 
