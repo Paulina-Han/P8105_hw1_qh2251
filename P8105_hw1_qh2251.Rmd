@@ -40,6 +40,35 @@ the `as.numeric` function set TRUE to 1 and FALSE to 0 for the logical vector.th
 
 So when you try to take the mean of a vector , you have to make sure it is a numerical vector.
 
+# Problem 2
+```{r}
+library(palmerpenguins)
+
+#load the data from the package
+data("penguins", package = "palmerpenguins")
+
+#name and important values of the data
+summary(penguins)
+skimr::skim(penguins)
+
+#size of the data set
+nrow(penguins)
+ncol(penguins)
+
+#mean flipper length(removing all NAs)
+mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
+
+```
+
+```{r}
+#drawing a  plot
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species )) + geom_point()
+
+#save the plot
+ggsave("scatter_plot.pdf", height = 4, width = 6)
+
+```
+
 
 
 
