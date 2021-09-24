@@ -26,7 +26,7 @@ mean(pull(df_1,vec_char))
 mean(pull(df_1,vec_factor))
 ```
 
-The numerical and logical vectors work,but the charater and factor vectors don' work.
+The numerical and logical vectors work,but the character and factor vectors don't work.
 
 ```{r,eval = FALSE}
 mean(as.numeric(pull(df_1,vec_logical)))
