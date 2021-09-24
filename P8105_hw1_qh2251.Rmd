@@ -34,7 +34,7 @@ mean(as.numeric(pull(df_1,vec_char)))
 mean(as.numeric(pull(df_1,vec_factor)))
 
 ```
-the `mean` function works for the converted numeric vector and the converted factor vector.However the mean function doesn't work for the converted character vector.
+the `mean` function works for the converted logical vector and the converted factor vector.However the mean function doesn't work for the converted character vector.
 
 the `as.numeric` function set TRUE to 1 and FALSE to 0 for the logical vector.the `as.numeric` function set "blue" to 1,"red" to 2,"yellow" to 3 for the factor vector. In this way the `mean` function works. All characters were converted to NA by `as.numeric` function so it won't work for the `mean` function.
 
