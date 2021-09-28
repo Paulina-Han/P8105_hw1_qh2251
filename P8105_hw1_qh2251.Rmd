@@ -10,7 +10,7 @@ library(tidyverse)
 ```
 
 # Problem 1
-```{r}
+```{r,warning = FALSE}
 set.seed(12)
 
 df_1 = tibble(
@@ -26,9 +26,9 @@ mean(pull(df_1,vec_char))
 mean(pull(df_1,vec_factor))
 ```
 
-The numerical and logical vectors work,but the character and factor vectors don't work.
+The numeric and logical vectors work,but the character and factor vectors don't work.
 
-```{r,eval = FALSE}
+```{r,eval = FALSE, warning = FALSE}
 mean(as.numeric(pull(df_1,vec_logical)))
 mean(as.numeric(pull(df_1,vec_char)))
 mean(as.numeric(pull(df_1,vec_factor)))
@@ -38,7 +38,7 @@ the `mean` function works for the converted logical vector and the converted fac
 
 the `as.numeric` function set TRUE to 1 and FALSE to 0 for the logical vector.the `as.numeric` function set "blue" to 1,"red" to 2,"yellow" to 3 for the factor vector. In this way the `mean` function works. All characters were converted to NA by `as.numeric` function so it won't work for the `mean` function.
 
-So when you try to take the mean of a vector , you have to make sure it is a numerical vector.logical vectors can be treated as numerical vectors by default of `mean`function.
+So when you try to take the mean of a vector , you have to make sure it is a numerical vector.logical vectors can be treated as numerical vectors by default of `mean` function.
 
 # Problem 2
 ```{r}
@@ -48,16 +48,15 @@ library(palmerpenguins)
 data("penguins", package = "palmerpenguins")
 
 #name and important values of the data
-
 #species
 Adelie = sum(pull(penguins,species) == 'Adelie')
 Chinstrap = sum(pull(penguins,species) == 'Chinstrap')
 Gentoo = sum(pull(penguins,species) == 'Gentoo')
 #body_mass
 na = sum(is.na(pull(penguins,body_mass_g)))
-body_mass_mean = mean(pull(penguins,body_mass_g))
-body_mass_min = min(pull(penguins,body_mass_g))
-body_mass_max = max(pull(penguins,body_mass_g))
+body_mass_mean = mean(pull(penguins,body_mass_g),na.rm = T)
+body_mass_min = min(pull(penguins,body_mass_g),na.rm = T)
+body_mass_max = max(pull(penguins,body_mass_g),na.rm = T)
 
 #flipper_length
 na_flipper = sum(is.na(pull(penguins,flipper_length_mm)))
@@ -70,7 +69,7 @@ row = nrow(penguins)
 col = ncol(penguins)
 
 #mean flipper length(removing all NAs)
-mean=mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
+mean = mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
 
 ```
 
