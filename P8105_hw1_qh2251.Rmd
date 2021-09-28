@@ -34,7 +34,7 @@ mean(as.numeric(pull(df_1,vec_char)))
 mean(as.numeric(pull(df_1,vec_factor)))
 
 ```
-the `mean` function works for the converted logical vector and the converted factor vector.However the mean function doesn't work for the converted character vector.
+the `mean` function works for the converted logical vector and the converted factor vector.However the `mean` function doesn't work for the converted character vector.
 
 the `as.numeric` function set TRUE to 1 and FALSE to 0 for the logical vector.the `as.numeric` function set "blue" to 1,"red" to 2,"yellow" to 3 for the factor vector. In this way the `mean` function works. All characters were converted to NA by `as.numeric` function so it won't work for the `mean` function.
 
@@ -59,6 +59,27 @@ ncol(penguins)
 mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
 
 ```
+The data set includes 344 observations and 8 variables.
+
+For species is a factor variable which has 152 Adelie penguins, 68 Chinstrap penguins and 124 Gentoo penguins.
+
+For island is a factor variable which has 168 penguins from Biscoe,124 penguins from Dream and 52 penguins from Torgersen.
+
+For bill_length_mm is a numeric variable with 2 missing values. The mean is 43.92, the min is 32.1, the max is 59.6.
+
+For bill_depth_mm is a numeric variable with 2 missing values. The mean is 17.15, the min is 13.10, the max is 21.5.
+
+For flipper_length_mm is a numeric variable with 2 missing values. The mean is 200.9 , the min is 172, the max is 231.
+
+For body_mass_g is a numeric variable with 2 missing values. The mean is 4202 , the min is 2700, the max is 6300.
+
+For sex is a factor variable with 11 missing values. There are 165 female penguins and 168 male penguins.
+
+For year is a numeric variable . The mean is 2008 , the min is 2007, the max is 2009.
+
+There are 344 rows and 8 columns in the data set.
+
+The mean flipper length is 200.9152.
 
 ```{r}
 #drawing a  plot
