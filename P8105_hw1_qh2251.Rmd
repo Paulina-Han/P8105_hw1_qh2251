@@ -49,6 +49,10 @@ data("penguins", package = "palmerpenguins")
 
 #name and important values of the data
 summary(penguins)
+Adelie = sum(pull(penguins,species) == 'Adelie')
+Chinstrap = sum(pull(penguins,species) == 'Chinstrap')
+Gentoo = sum(pull(penguins,species) == 'Gentoo')
+
 skimr::skim(penguins)
 
 #size of the data set
@@ -60,8 +64,9 @@ mean=mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
 
 ```
 
-The species 
-There are `r row`s and  `r col`s in the data set.
+The species is a factor variable which has `r Adelie` Adelie penguins, `r Chinstrap`Chinstrap penguins and `r Gentoo` Gentoo penguins.
+
+There are `r row` rows and  `r col` columns in the data set.
 The mean flipper length is`r mean`.
 
 
