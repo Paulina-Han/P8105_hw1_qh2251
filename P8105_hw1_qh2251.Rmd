@@ -48,12 +48,22 @@ library(palmerpenguins)
 data("penguins", package = "palmerpenguins")
 
 #name and important values of the data
-summary(penguins)
+
+#species
 Adelie = sum(pull(penguins,species) == 'Adelie')
 Chinstrap = sum(pull(penguins,species) == 'Chinstrap')
 Gentoo = sum(pull(penguins,species) == 'Gentoo')
+#body_mass
+na = sum(is.na(pull(penguins,body_mass_g)))
+body_mass_mean = mean(pull(penguins,body_mass_g))
+body_mass_min = min(pull(penguins,body_mass_g))
+body_mass_max = max(pull(penguins,body_mass_g))
 
-skimr::skim(penguins)
+#flipper_length
+na_flipper = sum(is.na(pull(penguins,flipper_length_mm)))
+flipper_length_mm_mean = mean(pull(penguins,flipper_length_mm),na.rm = T)
+flipper_length_mm_min = min(pull(penguins,flipper_length_mm),na.rm = T)
+flipper_length_mm_max = max(pull(penguins,flipper_length_mm),na.rm = T)
 
 #size of the data set
 row = nrow(penguins)
@@ -64,9 +74,15 @@ mean=mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
 
 ```
 
-The species is a factor variable which has `r Adelie` Adelie penguins, `r Chinstrap`Chinstrap penguins and `r Gentoo` Gentoo penguins.
+The species is a factor variable which has `r Adelie` Adelie penguins, `r Chinstrap` Chinstrap penguins and `r Gentoo` Gentoo penguins.
+
+The body_mass_g is a numeric variable with `r na` missing values. The mean is `r body_mass_mean`, the minimum is `r body_mass_min`, the maximum is `r body_mass_max`.
+
+The flipper_length_mm is a numeric variable with `r na_flipper` missing values. The mean is `r flipper_length_mm_mean` , the minimum is `r flipper_length_mm_min`, the maximum is `r flipper_length_mm_max` .
+
 
 There are `r row` rows and  `r col` columns in the data set.
+
 The mean flipper length is`r mean`.
 
 
