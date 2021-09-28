@@ -48,7 +48,7 @@ library(palmerpenguins)
 data("penguins", package = "palmerpenguins")
 
 #name and important values of the data
-description = summary(penguins)
+summary(penguins)
 skimr::skim(penguins)
 
 #size of the data set
@@ -59,7 +59,10 @@ col = ncol(penguins)
 mean=mean(pull(penguins,flipper_length_mm),na.rm = TRUE)
 
 ```
-The data set includes 344 observations and 8 variables.The detail is in the `description`. There are 344 `row`s and 8 `col`s in the data set.The `mean` flipper length is 200.9152.
+
+The species 
+There are `r row`s and  `r col`s in the data set.
+The mean flipper length is`r mean`.
 
 
 ```{r}
